@@ -20,7 +20,7 @@ function createBoard() {
     const container = document.body;
     const cardImages = [...IMAGES, ...IMAGES];
     shuffleCards(cardImages);
-    IMAGES.forEach((image, index) => {
+    cardImages.forEach((image, index) => {
         const card = createCard(image, index);
         container.appendChild(card);
     });
