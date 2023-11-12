@@ -12,16 +12,15 @@ const images = [
     let flippedCards = [];
     let pairsFound = 0;
 
-    function createBoard() {
-        const container = document.body;
+function createBoard() {
+    const container = document.body;
 
-        images.forEach((image, index) => {
-            const card = createCard(image, index);
-            container.appendChild(card);
-        });
-
-        shuffleCards();
-    }
+    images.forEach((image, index) => {
+        const card = createCard(image, index);
+        container.appendChild(card);
+    });
+    shuffleCards();
+}
 
     function createCard(image, index) {
         const cardContainer = document.createElement('div');
@@ -73,18 +72,18 @@ const images = [
             card2.classList.add('matched');
             pairsFound++;
         } else {
-            // Las cartas no son pareja, las volvemos a tapar
+            //volteamos las cartas porque no son pareja
             card1.classList.remove('flipped');
             card2.classList.remove('flipped');
         }
 
         flippedCards = [];
 
-        // Verificar si el jugador ha ganado
-        if (pairsFound === images.length / 2) {
+        //verifico si hemos ganado
+        if (pairsFound === images.length) {
             alert('¡Has ganado!');
         }
-    }
+}
 
     // Inicializar el juego al cargar la página
     createBoard();
