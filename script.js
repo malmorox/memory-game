@@ -11,7 +11,7 @@ const IMAGES = [
     'imagen10.jpg',
 ];
 
-const IMAGES_LENGHT = images.length;
+const IMAGES_LENGHT = IMAGES.length;
 
 let flippedCards = [];
 let pairsFound = 0;
