@@ -27,20 +27,24 @@ function createBoard() {
 }
 
 function createCard(image, index) {
+    //creamos el contenedor de la carta
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card');
-
+    //contenedor de la carta boca abajo
     const cardFront = document.createElement('div');
     cardFront.classList.add('card-face');
     cardFront.style.backgroundImage = `url('back.jpg')`;
     cardFront.addEventListener('click', flipCard);
-
+    //contenedor de la carta volteada
     const cardBack = document.createElement('div');
     cardBack.classList.add('card-face');
-    cardBack.style.backgroundImage = `url(img/'${image}')`;
+    //contenedor de la carta boca abajo
+    const cardBackImg = document.createElement('img');
+    cardBackImg.src = `img/${image}`;
 
     cardContainer.appendChild(cardFront);
     cardContainer.appendChild(cardBack);
+    cardBack.appendChild(cardBackImg);
 
     cardContainer.addEventListener('click', function () {
         if (!this.classList.contains('flipped') && flippedCards.length < 2) {
@@ -85,7 +89,7 @@ function flipCard(card) {
         flippedCards = [];
 
         //verifico si hemos ganado
-        if (pairsFound === images.length) {
+        if (pairsFound === IMAGES_LENGHT) {
             alert('¡Has ganado!');
         }
 }

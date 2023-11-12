@@ -1,12 +1,17 @@
 .card {
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 280px;
     margin: 5px;
     cursor: pointer;
     border: 1px solid #ccc;
     backface-visibility: hidden;
     transform-style: preserve-3d;
     transition: transform 0.5s;
+}
+
+.card img {
+    height: 100%;
+    object-fit: cover;
 }
 
 .card .card-face {
