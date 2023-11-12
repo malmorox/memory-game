@@ -18,7 +18,6 @@ function createBoard() {
         const card = createCard(image, index);
         container.appendChild(card);
     });
-    shuffleCards();
 }
 
 function createCard(image, index) {
