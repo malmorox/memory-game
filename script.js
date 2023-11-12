@@ -66,7 +66,7 @@ function checkForMatch() {
     const [card1, card2] = flippedCards;
 
     if (card1.style.backgroundImage === card2.style.backgroundImage) {
-        // Las cartas son pareja
+        //comprueba si las cartas son iguales y, si son, las pone como matcheadas
         card1.classList.add('matched');
         card2.classList.add('matched');
         pairsFound++;
