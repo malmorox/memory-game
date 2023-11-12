@@ -1,14 +1,8 @@
 const IMAGES = [
-    'imagen1.jpg',
-    'imagen2.jpg',
-    'imagen3.jpg',
-    'imagen4.jpg',
-    'imagen5.jpg',
-    'imagen6.jpg',
-    'imagen7.jpg',
-    'imagen8.jpg',
-    'imagen9.jpg',
-    'imagen10.jpg',
+    'imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg', 'imagen4.jpg',
+    'imagen5.jpg', 'imagen6.jpg', 'imagen7.jpg', 'imagen8.jpg',
+    'imagen9.jpg', 'imagen10.jpg', 'imagen11.jpg', 'imagen12.jpg',
+    'imagen13.jpg', 'imagen14.jpg', 'imagen15.jpg', 'imagen16.jpg',
 ];
 
 const IMAGES_LENGHT = IMAGES.length;
@@ -17,7 +11,7 @@ let flippedCards = [];
 let pairsFound = 0;
 
 function createBoard() {
-    const container = document.body;
+    const container = document.querySelector('.cardsContainer');
     const cardImages = [...IMAGES, ...IMAGES];
     shuffleCards(cardImages);
     cardImages.forEach((image, index) => {
@@ -62,10 +56,7 @@ function createCard(image, index) {
 
 
 function shuffleCards(cards) {
-    cards.forEach(card => {
-        let randomPosition = Math.floor(Math.random() * (index + 1));
-        card.style.order = randomPosition;
-    });
+    cards.sort(() => Math.random() - 0.4);
 }
 
 function flipCard(card) {
