@@ -62,26 +62,26 @@ function flipCard(card) {
     card.classList.add('flipped');
 }
 
-    function checkForMatch() {
-        const [card1, card2] = flippedCards;
+function checkForMatch() {
+    const [card1, card2] = flippedCards;
 
-        if (card1.style.backgroundImage === card2.style.backgroundImage) {
-            // Las cartas son pareja
-            card1.classList.add('matched');
-            card2.classList.add('matched');
-            pairsFound++;
-        } else {
-            //volteamos las cartas porque no son pareja
-            card1.classList.remove('flipped');
-            card2.classList.remove('flipped');
-        }
+    if (card1.style.backgroundImage === card2.style.backgroundImage) {
+        // Las cartas son pareja
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        pairsFound++;
+    } else {
+        //volteamos las cartas porque no son pareja
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+    }
 
-        flippedCards = [];
+    flippedCards = [];
 
-        //verifico si hemos ganado
-        if (pairsFound === IMAGES_LENGHT) {
-            alert('¡Has ganado!');
-        }
+    //verifico si hemos ganado
+    if (pairsFound === IMAGES_LENGHT) {
+        alert('¡Has ganado!');
+    }
 }
 
 // Inicializar el juego al cargar la página
