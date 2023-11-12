@@ -18,7 +18,8 @@ let pairsFound = 0;
 
 function createBoard() {
     const container = document.body;
-
+    const cardImages = [...IMAGES, ...IMAGES];
+    shuffleCards(cardImages);
     IMAGES.forEach((image, index) => {
         const card = createCard(image, index);
         container.appendChild(card);
@@ -27,7 +28,7 @@ function createBoard() {
 }
 
 function createCard(image, index) {
-    //creamos el contenedor de la carta
+    //contenedor general de la carta
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card');
     //contenedor de la carta boca abajo
@@ -38,7 +39,7 @@ function createCard(image, index) {
     //contenedor de la carta volteada
     const cardBack = document.createElement('div');
     cardBack.classList.add('card-face');
-    //contenedor de la carta boca abajo
+    //imagen que metemos dentro del contenedor de la carta volteada
     const cardBackImg = document.createElement('img');
     cardBackImg.src = `img/${image}`;
 
@@ -60,10 +61,9 @@ function createCard(image, index) {
 }
 
 
-function shuffleCards() {
-    const cards = document.querySelectorAll('.card');
+function shuffleCards(cards) {
     cards.forEach(card => {
-        let randomPosition = Math.floor(Math.random() * IMAGES_LENGHT);
+        let randomPosition = Math.floor(Math.random() * (index + 1));
         card.style.order = randomPosition;
     });
 }
