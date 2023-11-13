@@ -1,3 +1,4 @@
+//array con todas las imagenes del jeugo
 const IMAGES = [
     'imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg', 'imagen4.jpg',
     'imagen5.jpg', 'imagen6.jpg', 'imagen7.jpg', 'imagen8.jpg',
@@ -5,6 +6,7 @@ const IMAGES = [
     'imagen13.jpg', 'imagen14.jpg', 'imagen15.jpg', 'imagen16.jpg',
 ];
 
+//variable constante para usar la cantidad de imagenes que hay
 const IMAGES_LENGHT = IMAGES.length;
 
 let flippedCards = [];
@@ -12,6 +14,7 @@ let pairsFound = 0;
 
 function createBoard() {
     const container = document.querySelector('.cardsContainer');
+    //array para duplicar las imagenes y haya 2 de cada
     const cardImages = [...IMAGES, ...IMAGES];
     shuffleCards(cardImages);
     cardImages.forEach((image, index) => {
@@ -20,17 +23,19 @@ function createBoard() {
     });
 }
 
-function createCard(image, index) {
+function createCard(image) {
     //contenedor general de la carta
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card');
     //contenedor de la carta boca abajo
     const cardFront = document.createElement('div');
-    cardFront.classList.add('card-face');
-    cardFront.style.backgroundImage = `url('back.jpg')`;
+    cardFront.classList.add('card-face', 'front');
+    const cardFrontImg = document.createElement('img');
+    cardFrontImg.src = `img/carta.jpg`;
     cardFront.addEventListener('click', flipCard);
     //contenedor de la carta volteada
     const cardBack = document.createElement('div');
+    cardFront.classList.add('card-face', 'back');
     cardBack.classList.add('card-face');
     //imagen que metemos dentro del contenedor de la carta volteada
     const cardBackImg = document.createElement('img');
@@ -38,6 +43,7 @@ function createCard(image, index) {
 
     cardContainer.appendChild(cardFront);
     cardContainer.appendChild(cardBack);
+    cardFront.appendChild(cardFrontImg);
     cardBack.appendChild(cardBackImg);
 
     cardContainer.addEventListener('click', function () {
@@ -65,11 +71,15 @@ function flipCard(card) {
 function checkForMatch() {
     const [card1, card2] = flippedCards;
 
-    if (card1.style.backgroundImage === card2.style.backgroundImage) {
-        //comprueba si las cartas son iguales y, si son, las pone como matcheadas
+    const img1 = card1.getAttribute('img');
+    const img2 = card2.getAttribute('img');
+
+    if (img1 === img2) {
+        //las cartas son iguales
         card1.classList.add('matched');
         card2.classList.add('matched');
         pairsFound++;
+        console.log("coiciden");
     } else {
         //volteamos las cartas porque no son pareja
         card1.classList.remove('flipped');
