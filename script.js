@@ -95,8 +95,18 @@ function checkForMatch() {
     //verifico si hemos ganado
     if (pairsFound === IMAGES_LENGHT) {
         alert('¡Has ganado!');
+        document.getElementById('restartButton').style.display = 'block';
     }
 }
 
 // Inicializar el juego al cargar la página
 createBoard();
+
+function restartGame() {
+    document.getElementById('restartButton').style.display = 'none';
+    const CARDS_CONTAINER = document.querySelector('.cardsContainer');
+    CARDS_CONTAINER.innerHTML = '';
+    flippedCards = [];
+    pairsFound = 0;
+    createBoard();
+}

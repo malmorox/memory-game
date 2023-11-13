@@ -51,5 +51,10 @@ h1 {
 }
 
 .card.matched {
-    box-shadow: ;
+
+}
+
+#restartButton {
+    display: none;
+    margin-bottom: 20px;
 }
