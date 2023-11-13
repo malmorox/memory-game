@@ -35,7 +35,7 @@ function createCard(image) {
     cardFront.addEventListener('click', flipCard);
     //contenedor de la carta volteada
     const cardBack = document.createElement('div');
-    cardFront.classList.add('card-face', 'back');
+    cardBack.classList.add('card-face', 'back');
     cardBack.classList.add('card-face');
     //imagen que metemos dentro del contenedor de la carta volteada
     const cardBackImg = document.createElement('img');
@@ -65,14 +65,14 @@ function shuffleCards(cards) {
 }
 
 function flipCard(card) {
-    card.classList.add('flipped');
+    card.classList.toggle('flipped');
 }
 
 function checkForMatch() {
     const [card1, card2] = flippedCards;
 
-    const img1 = card1.getAttribute('img');
-    const img2 = card2.getAttribute('img');
+    const img1 = card1.querySelector('.back img').getAttribute('src');
+    const img2 = card2.querySelector('.back img').getAttribute('src');
 
     if (img1 === img2) {
         //las cartas son iguales
